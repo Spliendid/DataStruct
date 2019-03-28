@@ -45,7 +45,7 @@ namespace StackAndQueue
         }
 
         // 获取数组的容量
-        public int getCapacity()
+        public int GetCapacity()
         {
             return array.getCapacity();
         }
@@ -54,15 +54,15 @@ namespace StackAndQueue
         {
 
             StringBuilder res = new StringBuilder();
-            res.Append(String.Format("Array: size = {0} , capacity = {1}\n", GetSize(), getCapacity()));
-            res.Append('[');
+            res.Append(String.Format("Stack: size = {0} , capacity = {1}\n", GetSize(), GetCapacity()));
+            res.Append("Front[");
             for (int i = 0; i < GetSize(); i++)
             {
                 res.Append(array[i]);
                 if (i != GetSize() - 1)
                     res.Append(", ");
             }
-            res.Append(']');
+            res.Append("] Tail");
             return res.ToString();
         }
     }
