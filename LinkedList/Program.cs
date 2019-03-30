@@ -12,7 +12,14 @@ namespace LinkedList
             {
                 linkedList.AddFirst(i);
             }
+            Console.WriteLine(linkedList.ToString());
 
+
+            linkedList.Add(2, 22);
+
+            Console.WriteLine(linkedList.ToString());
+
+            linkedList.Remove(2);
             Console.WriteLine(linkedList.ToString());
         }
     }

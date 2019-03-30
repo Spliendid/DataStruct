@@ -2,7 +2,7 @@
 using System.Text;
 namespace LinkedList
 {
-    class LinkedList<E>
+    public class LinkedList<E>
     {
         /// <summary>
         /// 节点类
@@ -165,11 +165,47 @@ namespace LinkedList
             return false;
         }
 
+     
+        #endregion
+
+        #region Remove
+
+        public E Remove(int index)
+        {
+            if (index < 0 || index >= size)
+            {
+                throw new IndexOutOfRangeException("Set failed. Illegal index.");
+            }
+
+            Node pre = dummyHead;
+            for (int i = 0; i < index; i++)
+            {
+                pre = pre.next;
+            }
+            Node node = pre.next;
+            pre.next = node.next;
+            node.next = null;
+            size--;
+            return node.e;
+        }
+
+        public E RemoveFirst()
+        {
+            return Remove(0);
+        }
+
+        public E RemoveLast()
+        {
+            return Remove(size -1);
+        }
+
+        #endregion
+
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
             Node cur = dummyHead.next;
-            while (cur!=null)
+            while (cur != null)
             {
                 sb.Append(cur.ToString() + "-->");
                 cur = cur.next;
@@ -179,7 +215,5 @@ namespace LinkedList
 
             return sb.ToString();
         }
-        #endregion
-
     }
 }
