@@ -6,6 +6,10 @@ namespace LinkedList
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine(Sum.ArraySum(new int[] { 1, 2, 3, 4, 5 }));
+            
+
             LinkedList<int> linkedList = new LinkedList<int>();
 
             for (int i = 0; i < 10; i++)
