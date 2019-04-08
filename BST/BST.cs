@@ -321,10 +321,56 @@ namespace BST
 
         public void Remove(T t)
         {
-
+            root = Remove(root,t);
         }
 
-        private Node 
+        //删除node为根节点树 的值为t的节点
+        //返回删除后的根节点
+        private Node Remove(Node node,T t)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+            Node _node = node;
+
+            //找到比待删节点大的最小节点
+            //用这个节点代替待删节点的位置
+            if (node.t.Equals(t))
+            {
+                //待删节点左子树为空
+                if (node.left == null)
+                {
+                    Node __node = node.right;
+                    node.right = null;
+                    return __node;
+                }
+
+
+                //右子树为空
+                if (node.right == null)
+                {
+                    Node __node = node.left;
+                    node.left = null;
+                    return __node;
+                }
+
+                _node = Minimum(node.right);                
+                _node.right = RemoveMini(node.right); //先进行
+                _node.left = node.left;
+                node.right = node.left = null;
+
+            }
+           else if (node.t.CompareTo(t)>0)
+            {
+               node.left = Remove(node.left, t);
+            }
+            else 
+            {
+               node.right = Remove(node.right, t);
+            }
+            return _node;
+        }
 
         #endregion
 
