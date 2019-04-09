@@ -13,7 +13,7 @@ namespace BST
     /// 二分搜索树
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    class BST<T>where T: IComparable<T>
+    public class BST<T>where T: IComparable<T>
     {
         //树节点类
         private class Node

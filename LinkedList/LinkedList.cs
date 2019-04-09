@@ -189,6 +189,27 @@ namespace LinkedList
             return node.e;
         }
 
+        public void RemoveElement(E e)
+        {
+            Node pre = dummyHead;
+            while (pre.next!=null)
+            { 
+                if (pre.next.e.Equals(e))
+                {
+                    Node node = pre.next;
+                    pre.next = pre.next.next;
+                    node.next = null;
+                    size--;
+                    return;
+                }
+                else
+                {
+                    pre = pre.next;
+                }
+            }
+
+        }
+
         public E RemoveFirst()
         {
             return Remove(0);
