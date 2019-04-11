@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using BST;
-namespace SetAndMap
+namespace Set
 {
     class BSTSet<T> : SetInterface<T> where T : IComparable<T>
     {

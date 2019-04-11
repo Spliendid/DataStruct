@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using LinkedList;
-namespace SetAndMap
+namespace Set
 {
     class LinkedListSet<T> : SetInterface<T>
     {

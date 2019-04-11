@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SetAndMap
+namespace Set
 {
     interface SetInterface<T>
     {
