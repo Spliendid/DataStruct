@@ -6,11 +6,17 @@ namespace Map
     {
         static void Main(string[] args)
         {
-            LinkedListMap<int, char > map = new LinkedListMap<int, char>();
+          
 
-            for (int i = 0; i < 10; i++)
+            
+
+            int[] array = new int[] { 2, 5, 4, 8, 7, 3, 9, 1, 6 };
+
+            BSTMap<int, char > map = new BSTMap<int, char>();
+
+            for (int i = 0; i < 9; i++)
             {
-                map.Add(i,(char)('a'+i));
+                map.Add(array[i],(char)('a'+i));
             }
 
 
@@ -19,10 +25,13 @@ namespace Map
             //Console.WriteLine(map.IsEmpty());
             //Console.WriteLine(map.Contain(2));
 
-            Console.WriteLine(map.Remove(0));
-            map.Set(1,'#');
+            //Console.WriteLine(map.Remove(0));
+            //map.Set(1,'#');
             Console.WriteLine(map.Get(1));
-            Console.WriteLine(map);
+            //Console.WriteLine(map);
+
+            map.Remove(4);
+            map.LevelOrder();
         }
     }
 }
