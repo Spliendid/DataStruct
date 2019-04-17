@@ -15,6 +15,18 @@ namespace Array
             set { set(index, value); }
         }
 
+        public Array(E[] array)
+        {
+            data = new E[array.Length];
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                data[i] = array[i];
+            }
+
+            size = data.Length;
+        }
+
         // 构造函数，传入数组的容量capacity构造Array
         public Array(int capacity)
         {
@@ -151,6 +163,19 @@ namespace Array
                 remove(index);
         }
 
+        //交换两个元素
+        public void Swap(int i, int j)
+        {
+            if (i<0 || i>=size || j<0 || j>= size)
+            {
+                throw new Exception("i or j is illegal index.");
+            }
+
+            E e = this[i];
+            this[i] = this[j];
+            this[j] = e;
+
+        }
 
         public String ToString()
         {

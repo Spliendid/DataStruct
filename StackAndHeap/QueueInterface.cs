@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace StackAndQueue
 {
-    interface QueueInterface<E>
+    public interface QueueInterface<E>
     {
         void Enqueue(E e);
         E Dequeue();
