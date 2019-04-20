@@ -46,18 +46,20 @@ namespace SegmentTree
 
         }
 
+        #region Query
+
         //查询l~r 区间的和
-        public T Query(int l,int r)
+        public T Query(int l, int r)
         {
-            if (l<0||r>=array.Length||l>r)
+            if (l < 0 || r >= array.Length || l > r)
             {
                 throw new Exception("l or r is illegal.");
             }
-           return Query(0, l, r,0,array.Length-1);
+            return Query(0, l, r, 0, array.Length - 1);
         }
 
         //在index节点（代表区间为[lq,rq]） 查询 [r,l]区间的和 
-        private T Query(int index,int l,int r,int lq,int rq) 
+        private T Query(int index, int l, int r, int lq, int rq)
         {
             if (l == r)
             {
@@ -69,25 +71,25 @@ namespace SegmentTree
             int leftC = LeftChild(index);
             int rightC = RightChild(index);
 
-          
-            int mid = (lq+rq) / 2;
+
+            int mid = lq +( rq - lq) / 2; //防止整形溢出
 
             Console.WriteLine($"{index}:[{lq},{rq}]");
 
 
             if (l > mid)
-                return Query(rightC, l, r,mid+1,rq);
+                return Query(rightC, l, r, mid + 1, rq);
             if (r < mid + 1)
-                return Query(leftC, l, r,lq,mid);
+                return Query(leftC, l, r, lq, mid);
 
-            T Left = Query(leftC, l, mid,lq,mid);
-            T Right = Query(rightC, mid + 1, r,mid+1,rq);
+            T Left = Query(leftC, l, mid, lq, mid);
+            T Right = Query(rightC, mid + 1, r, mid + 1, rq);
 
             return merger(Left, Right);
         }
 
         //查询 index位置 l~r 区间的和
-        private T Query(int index,int l,int r)
+        private T Query(int index, int l, int r)
         {
             if (l == r)
             {
@@ -100,17 +102,18 @@ namespace SegmentTree
             int rightC = RightChild(index);
 
             var query = GetQuery(index);
-            int mid = (query[0] + query[1]) / 2;
+
+            int mid = query[0] + (query[1] - query[0]) / 2;//防止整形溢出
 
             Console.WriteLine($"{index}:[{query[0]},{query[1]}]");
 
 
             if (l > mid)
-                return Query(rightC,l,r);
+                return Query(rightC, l, r);
             if (r < mid + 1)
-                return Query(leftC,l,r);
-            T Left = Query(leftC,l,mid);
-            T Right = Query(rightC,mid+1,r);
+                return Query(leftC, l, r);
+            T Left = Query(leftC, l, mid);
+            T Right = Query(rightC, mid + 1, r);
 
             return merger(Left, Right);
         }
@@ -119,19 +122,18 @@ namespace SegmentTree
         private int[] GetQuery(int index)
         {
 
-            int left=-1,right = -1;
-
+            int left = -1, right = -1;
             if (index == 0)
-                return new int[] { 0, array.Length-1};
-            
+                return new int[] { 0, array.Length - 1 };
+
             //index为奇数为左节点 index为偶数 为右节点
 
             int parent = Parent(index);
-            var _array= GetQuery(parent);
+            var _array = GetQuery(parent);
             int mid = (_array[0] + _array[1]) / 2;
 
             //右节点
-            if (index%2 == 0)
+            if (index % 2 == 0)
             {
                 left = mid + 1;
                 right = _array[1];
@@ -142,9 +144,52 @@ namespace SegmentTree
                 left = _array[0];
                 right = mid;
             }
-            return new int[]{ left,right};
+            return new int[] { left, right };
         }
 
+
+        #endregion
+
+        #region Set
+
+        public  void Set(int index,T t)
+        {
+            if (index<0||index >=array.Length)
+            {
+                throw new Exception("Index is illegal.");
+            }
+
+            array[index] = t;
+            Set(0,0,array.Length-1,index,t);
+
+        }
+
+        public void Set(int treeIndex,int l,int r,int index,T t)
+        {
+            if (l == r)
+            {
+                tree[treeIndex] = t;
+                return;
+            }
+            //  int mid = ( r+l) / 2;  这样会出现整形溢出
+            int mid = l+ ( r-l) / 2; //防止整形溢出
+            int leftC = LeftChild(treeIndex);
+            int rightC = RightChild(treeIndex);
+
+            if (index>mid)
+            {
+                Set(rightC, mid + 1, r, index, t);
+            }
+
+            if (index<mid+1)
+            {
+                Set(leftC,l,mid,index,t);
+            }
+
+            tree[treeIndex] = merger(tree[leftC],tree[rightC]);
+        }
+
+        #endregion
 
         public int Size { get { return array.Length; } }
 

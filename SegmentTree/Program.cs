@@ -10,6 +10,9 @@ namespace SegmentTree
             SegmentTree<int> tree = new SegmentTree<int>(data,(a,b)=>a+b);
             //Console.WriteLine(tree);
             Console.WriteLine(tree.Query(3,5));
+            tree.Set(3,5);
+            Console.WriteLine(tree.Query(3,5));
+
         }
 
     }
