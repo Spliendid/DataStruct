@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Map
 {
-    interface MapInterface<K,V>
+   public  interface MapInterface<K,V>
     {
         void Add(K key, V value);
         V Remove(K key);
