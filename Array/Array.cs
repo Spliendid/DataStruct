@@ -177,7 +177,7 @@ namespace Array
 
         }
 
-        public String ToString()
+        public override String ToString()
         {
 
             StringBuilder res = new StringBuilder();

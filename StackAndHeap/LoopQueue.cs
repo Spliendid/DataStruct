@@ -93,7 +93,7 @@ namespace StackAndQueue
             return data.Length - 1;
         }
 
-        public String ToString()
+        public override String ToString()
         {
 
             StringBuilder res = new StringBuilder();

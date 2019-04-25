@@ -101,7 +101,7 @@ namespace StackAndQueue
             return size == 0;
         }
 
-        public String ToString()
+        public override String ToString()
         {
 
             StringBuilder res = new StringBuilder();

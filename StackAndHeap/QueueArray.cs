@@ -53,7 +53,7 @@ namespace StackAndQueue
             return array.getCapacity();
         }
 
-        public String ToString()
+        public override  String ToString()
         {
 
             StringBuilder res = new StringBuilder();
