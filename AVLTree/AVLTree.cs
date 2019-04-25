@@ -91,7 +91,6 @@ namespace AVLTree
 
         private bool isBalanceNode(Node node)
         {
-            //Console.WriteLine($"{node.key}-balance:{GetBalance(node)}");
             return  Math.Abs( GetBalance(node) )<= 1;
         }
 
@@ -337,51 +336,52 @@ namespace AVLTree
                     renode = _node;
                 }
 
-                if (renode == null)
-                {
-                    return null;
-                }
-
-                //更新height
-                renode.Height = Math.Max(GetHeight(renode.leftNode),GetHeight(renode.rightNode))+1;
-                //平衡维护
-                int balance = GetBalance(renode);
-                Console.WriteLine($"{renode} B:{balance}");
-
-                //LL
-                if (balance > 1 && GetBalance(renode.leftNode) >= 0)
-                {
-                    renode = RightRotate(renode);
-                }
-
-                //LR
-                if (balance > 1 && GetBalance(renode.leftNode) < 0)
-                {
-                    //1.先将node.left 左旋
-                    renode.leftNode = LeftRotate(renode.leftNode);
-
-                    //2.转变为LL
-                    renode = RightRotate(renode);
-                }
-
-                //RR
-                if (balance < -1 && GetBalance(renode.rightNode) <= 0)
-                {
-                    renode = LeftRotate(renode);
-                }
-
-                //RL
-                if (balance < -1 && GetBalance(renode.rightNode) > 0)
-                {
-                    //1.先将node.right右旋
-                    renode.rightNode = RightRotate(renode.rightNode);
-
-                    //2.转变为RR
-                    renode = LeftRotate(renode);
-                }
+              
 
             }
-                return renode;
+            if (renode == null)
+            {
+                return null;
+            }
+
+            //更新height
+            renode.Height = Math.Max(GetHeight(renode.leftNode), GetHeight(renode.rightNode)) + 1;
+            //平衡维护
+            int balance = GetBalance(renode);
+            Console.WriteLine($"{renode} B:{balance}");
+
+            //LL
+            if (balance > 1 && GetBalance(renode.leftNode) >= 0)
+            {
+                renode = RightRotate(renode);
+            }
+
+            //LR
+            if (balance > 1 && GetBalance(renode.leftNode) < 0)
+            {
+                //1.先将node.left 左旋
+                renode.leftNode = LeftRotate(renode.leftNode);
+
+                //2.转变为LL
+                renode = RightRotate(renode);
+            }
+
+            //RR
+            if (balance < -1 && GetBalance(renode.rightNode) <= 0)
+            {
+                renode = LeftRotate(renode);
+            }
+
+            //RL
+            if (balance < -1 && GetBalance(renode.rightNode) > 0)
+            {
+                //1.先将node.right右旋
+                renode.rightNode = RightRotate(renode.rightNode);
+
+                //2.转变为RR
+                renode = LeftRotate(renode);
+            }
+            return renode;
         }
 
         #endregion
