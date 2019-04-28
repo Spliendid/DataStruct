@@ -140,6 +140,8 @@ namespace RBTree
             if (node == null)
             {
                 node = new Node( key,value);
+                size++;
+                return node;
             }
 
             if (node.key.CompareTo(key)>0)
@@ -149,6 +151,23 @@ namespace RBTree
             else if (node.key.CompareTo(key) < 0)
             {
                 node.rightNode = Add(node.rightNode,key,value);
+            }
+
+            //维护红黑树平衡
+
+            if (IsRed(node.rightNode)&&!IsRed(node.leftNode))
+            {
+                node = LeftRotate(node);
+            }
+
+            if (IsRed(node.leftNode)&&IsRed(node.leftNode.leftNode))
+            {
+                node = RightRotate(node);
+            }
+
+            if (IsRed(node.leftNode)&& IsRed(node.rightNode))
+            {
+                FlipColor(node);
             }
 
             return node;
@@ -372,7 +391,7 @@ namespace RBTree
                 return;
             }
 
-            Console.WriteLine($"[{node.key}:{node.value}]");
+            Console.WriteLine(node);
             PreOrder(node.leftNode);
             PreOrder(node.rightNode);
         }
@@ -391,7 +410,7 @@ namespace RBTree
             }
 
             InOrder(node.leftNode);
-            Console.WriteLine($"[{node.key}:{node.value}]");
+            Console.WriteLine(node);
             InOrder(node.rightNode);
         }
 
@@ -409,7 +428,7 @@ namespace RBTree
 
             PostOrder(node.leftNode);
             PostOrder(node.rightNode);
-            Console.WriteLine($"[{node.key}:{node.value}]");
+            Console.WriteLine(node);
         }
 
         public void LevelOrder()
@@ -427,7 +446,7 @@ namespace RBTree
             {
                 Node _node = queue.Dequeue();
 
-                Console.WriteLine($"[{_node.key}:{_node.value}]");
+                Console.WriteLine(_node);
 
                 if (_node.leftNode != null)
                     queue.Enqueue(_node.leftNode);

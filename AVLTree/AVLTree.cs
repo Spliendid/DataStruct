@@ -130,6 +130,8 @@ namespace AVLTree
             if (node == null)
             {
                 node = new Node(key, value);
+                size++;
+                return node;
             }
 
             if (node.key.CompareTo(key) > 0)
@@ -175,7 +177,7 @@ namespace AVLTree
                 //2.转变为RR
                 node = LeftRotate(node);
             }
-
+            
             return node;
         }
 

@@ -78,6 +78,8 @@ namespace Map
             if (node == null)
             {
                 node = new Node( key,value);
+                size++;
+                return node;
             }
 
             if (node.key.CompareTo(key)>0)
