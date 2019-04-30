@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Map
 {
-    class BSTMap<K, V> : MapInterface<K, V> where K:IComparable<K>
+    public  class BSTMap<K, V> : MapInterface<K, V> where K:IComparable<K>
     {
 
         #region Node

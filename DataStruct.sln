@@ -25,7 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnionFind", "UnionFind\Unio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AVLTree", "AVLTree\AVLTree.csproj", "{9E0BFEE4-FBEB-48FC-8367-9DB53F847327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RBTree", "RBTree\RBTree.csproj", "{FD7970BC-2CA0-496E-B916-A2A60C9412A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RBTree", "RBTree\RBTree.csproj", "{FD7970BC-2CA0-496E-B916-A2A60C9412A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HashTable", "HashTable\HashTable.csproj", "{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -231,6 +233,22 @@ Global
 		{FD7970BC-2CA0-496E-B916-A2A60C9412A2}.Release|x64.Build.0 = Release|Any CPU
 		{FD7970BC-2CA0-496E-B916-A2A60C9412A2}.Release|x86.ActiveCfg = Release|Any CPU
 		{FD7970BC-2CA0-496E-B916-A2A60C9412A2}.Release|x86.Build.0 = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|ARM.Build.0 = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|x64.Build.0 = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Debug|x86.Build.0 = Debug|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|ARM.ActiveCfg = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|ARM.Build.0 = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|x64.ActiveCfg = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|x64.Build.0 = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|x86.ActiveCfg = Release|Any CPU
+		{5BF6EAA5-8474-4EAE-BA2B-5B034D61642E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
