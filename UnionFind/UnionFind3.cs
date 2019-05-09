@@ -4,10 +4,14 @@ using System.Text;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// Size优化，快速查找并查集
+    /// 融合：把两个节点中连接少的那个遍历赋值
+    /// </summary>
     class UnionFind3 : UF
     {
         private int[] id;
-        private int[] sz;
+        private int[] sz;//该节点下，节点的个数
         public UnionFind3(int size)
         {
             id = new int[size];

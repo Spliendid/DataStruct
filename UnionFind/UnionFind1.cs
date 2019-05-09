@@ -4,6 +4,9 @@ using System.Text;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// 快速查找并查集 
+    /// </summary>
     class UnionFind1 : UF
     {
         private int[] id;

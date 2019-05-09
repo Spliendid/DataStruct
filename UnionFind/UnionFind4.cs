@@ -4,6 +4,10 @@ using System.Text;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// Rank 优化 快速融合并查集
+    /// 融合：Rank低的根节点指向Rank高的根节点，这样均摊复杂度更低
+    /// </summary>
     class UnionFind4 : UF
     {
         private int[] id;

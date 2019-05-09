@@ -4,6 +4,10 @@ using System.Text;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// 路径压缩   快速融合并查集
+    /// 优化 ： 查找时，将节点不断指向父节点的父节点
+    /// </summary>
     class UnionFind5 : UF
     {
         private int[] id;
@@ -12,7 +16,7 @@ namespace UnionFind
         public UnionFind5(int size)
         {
             id = new int[size];
-            rank = new int[size];
+            rank = new int[size]; 
             for (int i = 0; i < id.Length; i++)
             {
                 rank[i] = 1;

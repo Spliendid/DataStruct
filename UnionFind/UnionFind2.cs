@@ -4,6 +4,11 @@ using System.Text;
 
 namespace UnionFind
 {
+    /// <summary>
+    /// 快速融合并查集
+    /// 1.每个节点指向一个父节点，根节点连接他自己
+    /// 2.融合只需要把一个节点根节点的父节点指向另一个节点即可
+    /// </summary>
     class UnionFind2 : UF
     {
         private int[] id;
